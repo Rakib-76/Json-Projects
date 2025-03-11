@@ -21,3 +21,26 @@ const displayUser = (users) =>{
     }
 
 }
+
+// *****
+    // getting email from user api using fetch and include it into a new div.
+// *****
+const loadEmail = () => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(res => res.json())
+    .then(data => {
+    displayEmail (data)
+    })
+
+}
+
+const displayEmail = (emails) => {
+    const emailContainer = document.getElementById("email");
+    for(user of emails){
+    const li = document.createElement("li");
+    li.innerText = user.email;
+    emailContainer.appendChild(li);
+    }
+}
+
+
